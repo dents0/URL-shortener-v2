@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <form id="url_form" method="post" action="{{ url_for('shorten') }}">
+	<input class="form-control my-4 col-md-5" name="url" type="text" placeholder="e.g. https://example.com/">
+	<input id="submit_url" type="submit" class="btn btn-primary btn-lg" onclick="disableButton()">
+    </form>
+    <script>
+        // Function to disable button
+        function disableButton() {
+	    document.getElementById("url_form").submit();
+            document.getElementById('submit_url').disabled = true;
+	}
+    </script>
+{% endblock %}

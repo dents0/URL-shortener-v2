@@ -1,0 +1,11 @@
+runtime: python37
+
+handlers:
+- url: /.*
+  script: auto
+
+env_variables:
+  CLOUD_SQL_CONNECTION_NAME: "<project-name>:<instance-region>:<instance-name>"
+  DB_USER: "<username>"
+  DB_PASS: "<password>"
+  DB_NAME: "<db-name>"

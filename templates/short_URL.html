@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="mb-4">
+	<h5>Input</h5>
+	<input class="form-control" type="url" value="{{ url }}" readonly>
+    </div>
+    <div class="mb-4">
+        <h5>Short URL <button class="btn btn-light" onclick="copyToClipboard()"><i class="material-icons">file_copy</i></button></h5>
+	<input class="form-control" type="url" id="short-url" value="{{ result }}" readonly>
+    </div>
+    <a href="/"><input type="button" value="New URL" class="btn btn-primary btn-lg"/></a>
+
+
+    <script>
+        function copyToClipboard() {
+            /* Get the text field */
+            var copyText = document.getElementById("short-url");
+
+            /* Select the text field */
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+            /* Copy the text inside the text field */
+            document.execCommand("copy");
+        } 
+    </script>
+{% endblock %}
