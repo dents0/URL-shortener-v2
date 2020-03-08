@@ -29,6 +29,10 @@ def shorten():
     if request.method == 'POST':
 
         url_data = request.form['url']
+        # No URL has been provided
+        if not url_data:
+            error_msg = "No URL provided. Try again"
+            return render_template('index.html', error=error_msg)
         url_id = url_data[8] + str(choice(range(0, 10))) + "-dt-" + str(choice(range(109, 9999))) + url_data[-2:]
     
         # -------------------------------------------- Valid URL has been provided ------------------------
